@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+##DataTables
+
+country: string; <br>
+cases: number;<br>
+todayCases: number;<br>
+deaths: number;<br>
+todayDeaths: number;<br>
+recovered: number;<br>
+active: number;<br>
+critical: number;<br>
+casesPerOneMillion: number;

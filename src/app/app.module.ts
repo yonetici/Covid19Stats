@@ -9,13 +9,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CountryComponent } from './country/country.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CountriesComponent,
-    DashboardComponent
+    DashboardComponent,
+    CountryComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@
     <tbody>
     <tr *ngFor="let data of datas | paginate: {itemsPerPage: 10, currentPage: p}; let i = index;">
       <th scope="row">{{(p-1)*10+i+1}}</th>
-      <td>{{data.country}}</td>
+      <td><a [routerLink]="['/country', data.country]">{{data.country}}</a></td>
       <td>{{data.cases}}</td>
       <td>{{data.todayCases}}</td>
       <td>{{data.deaths}}</td>

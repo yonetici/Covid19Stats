@@ -1,14 +1,19 @@
+<mat-form-field>
+  <mat-label>Arama</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ör: Turkey">
+</mat-form-field>
+
 <table mat-table [dataSource]="dataSource" matSort>
 
   <!-- Position Column -->
   <ng-container matColumnDef="country">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Ülke </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Ülke </th>
     <td mat-cell *matCellDef="let element"> {{element.country}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="cases">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Vaka </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Vaka </th>
     <td mat-cell *matCellDef="let element"> {{element.cases}} </td>
   </ng-container>
 
@@ -20,7 +25,7 @@
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="deaths">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Ölüm </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Ölüm </th>
     <td mat-cell *matCellDef="let element"> {{element.deaths}} </td>
   </ng-container>
 
@@ -50,7 +55,7 @@
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="casesPerOneMillion">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Vaka / Milyon </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Vaka / Milyon </th>
     <td mat-cell *matCellDef="let element"> {{element.casesPerOneMillion}} </td>
   </ng-container>
 

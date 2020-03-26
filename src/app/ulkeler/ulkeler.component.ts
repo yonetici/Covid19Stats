@@ -3,6 +3,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {ApiService} from '../api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {MatInput} from '@angular/material/input';
 
 export interface PeriodicElement {
   country: string;

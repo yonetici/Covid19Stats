@@ -2,6 +2,9 @@
   <mat-label>Arama</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ör: Turkey">
 </mat-form-field>
+<div class="text-center" role="alert">
+  <button type='button' class='btn btn-success' (click)='results()'>Export csv</button>
+</div>
 
 <table mat-table [dataSource]="dataSource" matSort>
 

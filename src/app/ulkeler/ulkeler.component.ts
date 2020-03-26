@@ -4,6 +4,7 @@ import {ApiService} from '../api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatInput} from '@angular/material/input';
+import {ngxCsv} from 'ngx-csv';
 
 export interface PeriodicElement {
   country: string;
@@ -30,13 +31,23 @@ export interface PeriodicElement {
   styleUrls: ['./ulkeler.component.css']
 })
 export class UlkelerComponent implements OnInit {
+
+  constructor(private apiService: ApiService) {
+  }
   datas = [];
   dataSource: MatTableDataSource<PeriodicElement>;
   // tslint:disable-next-line:max-line-length
   displayedColumns: string[] = ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active', 'critical', 'casesPerOneMillion', 'deathsPerOneMillion'];
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
-  constructor(private apiService: ApiService) { }
+  options = {
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalseparator: '.',
+    showLabels: true,
+    useBom: true,
+    headers: ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active', 'critical', 'casesPerOneMillion', 'deathsPerOneMillion']
+  };
 
   ngOnInit(): void {
     this.apiService.sendGetRequest('countries').subscribe((api: any[]) => {
@@ -47,6 +58,7 @@ export class UlkelerComponent implements OnInit {
       this.dataSource.sort = this.sort;
     });
   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -54,5 +66,9 @@ export class UlkelerComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
+  results() {
+    // tslint:disable-next-line:no-unused-expression
+    new ngxCsv(this.datas, 'Daily Report', this.options)
+    ;
+  }
 }

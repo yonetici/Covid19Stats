@@ -1,70 +1,69 @@
 <mat-form-field>
-  <mat-label>Arama</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ör: Turkey">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="ie: an">
 </mat-form-field>
 <div class="text-center" role="alert">
-  <button type='button' class='btn btn-success' (click)='results()'>Export csv</button>
+  <button type='button' class='btn btn-success' (click)='results()'>Export as CSV</button>
 </div>
 
 <table mat-table [dataSource]="dataSource" matSort>
-
-  <!-- Position Column -->
+   <!-- Position Column -->
   <ng-container matColumnDef="country">
-    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Ülke </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
     <td mat-cell *matCellDef="let element"> {{element.country}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="cases">
-    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Vaka </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Cases </th>
     <td mat-cell *matCellDef="let element"> {{element.cases}} </td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="todayCases">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Bugün Vaka </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef> Today Cases </th>
     <td mat-cell *matCellDef="let element"> {{element.todayCases}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="deaths">
-    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Ölüm </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Deaths </th>
     <td mat-cell *matCellDef="let element"> {{element.deaths}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="todayDeaths">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Bugün Ölüm </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef> Today Deaths </th>
     <td mat-cell *matCellDef="let element"> {{element.todayDeaths}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="recovered">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> İyileşen </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef> Recovered </th>
     <td mat-cell *matCellDef="let element"> {{element.recovered}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="active">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Aktif </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef> Active </th>
     <td mat-cell *matCellDef="let element"> {{element.active}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="critical">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Kritik </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef> Critical </th>
     <td mat-cell *matCellDef="let element"> {{element.critical}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="casesPerOneMillion">
-    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Vaka / Milyon </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Cases / Million </th>
     <td mat-cell *matCellDef="let element"> {{element.casesPerOneMillion}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="deathsPerOneMillion">
-    <th class="text-center" mat-header-cell *matHeaderCellDef> Ölüm / Milyon </th>
+    <th class="text-center" mat-header-cell *matHeaderCellDef> Deaths / Million </th>
     <td mat-cell *matCellDef="let element"> {{element.deathsPerOneMillion}} </td>
   </ng-container>
 

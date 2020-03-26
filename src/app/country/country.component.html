@@ -3,30 +3,12 @@
   Toplam Vaka: {{veri.cases | number}}
 </div>
 <div class="alert alert-secondary" role="alert">
-  Bugünki Vakalar: {{veri.todayCases | number}}
-</div>
-<div class="alert alert-success" role="alert">
   Ölüm: {{veri.deaths | number}}
 </div>
-
-<div class="alert alert-danger" role="alert">
-  Bugünki Ölümler: {{veri.todayDeaths | number}}
+<div class="alert alert-success" role="alert">
+  İyileşme: {{veri.recovered | number}}
 </div>
 
-<div class="alert alert-dark" role="alert">
-  İyileşen: {{veri.recovered | number}}
-</div>
-
-<div class="alert alert-primary" role="alert">
-  Aktif: {{veri.active | number}}
-</div>
-
-<div class="alert alert-danger" role="alert">
-  Kritik: {{veri.critical | number}}
-</div>
-<div class="alert alert-primary" role="alert">
-  Milyonda Kaç? : {{veri.casesPerOneMillion | number}}
-</div>
 <div class="text-center my-2">
   <a routerLink="/dashboard" class="btn btn-primary">Global Statistics</a>
 </div>

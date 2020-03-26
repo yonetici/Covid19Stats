@@ -17,8 +17,4 @@ export class DashboardComponent implements OnInit {
       this.veri = api;
     });
   }
-
-  RakamDuzelt(rakam):string {
-    return formatNumber(rakam,'tr');
-  }
 }

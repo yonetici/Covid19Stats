@@ -10,7 +10,7 @@
    <!-- Position Column -->
   <ng-container matColumnDef="country">
     <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header>Country</th>
-    <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    <td mat-cell *matCellDef="let element"><a [routerLink]="['/country', element.country]"> {{element.country}} </a></td>
   </ng-container>
 
   <!-- Name Column -->

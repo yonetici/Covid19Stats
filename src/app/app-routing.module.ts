@@ -6,11 +6,12 @@ import {CountryComponent} from './country/country.component';
 import {UlkelerComponent} from './ulkeler/ulkeler.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'/dashboard',pathMatch:'full'},
-  {path:'country/:id', component: CountryComponent},
+  {path: 'country/:id', component: CountryComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'countries', component: UlkelerComponent},
-  {path: 'ulkeler', component: CountriesComponent}
+  {path: 'ulkeler', component: CountriesComponent},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '**', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 
 @NgModule({

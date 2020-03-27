@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  private PHP_API_SERVER = 'http://coronavirus-19-api.herokuapp.com/';
+  private PHP_API_SERVER = 'https://coronavirus-19-api.herokuapp.com/';
   public sendGetRequest(value) {
     return this.httpClient.get(this.PHP_API_SERVER + value);
   }

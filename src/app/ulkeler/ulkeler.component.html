@@ -2,11 +2,11 @@
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="ie: an">
 </mat-form-field>
-<div class="text-center" role="alert">
+<div class="text-center mb-3" role="alert">
   <button type='button' class='btn btn-success' (click)='results()'>Export as CSV</button>
 </div>
 
-<table mat-table [dataSource]="dataSource" matSort>
+<table class="mat-elevation-z12" mat-table [dataSource]="dataSource" matSort>
    <!-- Position Column -->
   <ng-container matColumnDef="country">
     <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header>Country</th>
@@ -39,7 +39,7 @@
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="recovered">
-    <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header>Recovered</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Recovered</th>
     <td mat-cell *matCellDef="let element"> {{element.recovered}} </td>
   </ng-container>
 
@@ -65,6 +65,12 @@
   <ng-container matColumnDef="deathsPerOneMillion">
     <th class="text-center" mat-header-cell *matHeaderCellDef mat-sort-header>Deaths / Million</th>
     <td mat-cell *matCellDef="let element"> {{element.deathsPerOneMillion}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="firstCase">
+    <th class="text-center" mat-header-cell *matHeaderCellDef>First Case</th>
+    <td mat-cell *matCellDef="let element"> {{element.firstCase}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

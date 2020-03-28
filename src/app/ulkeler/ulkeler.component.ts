@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {ApiService} from '../api.service';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
+import {MatSort, MatSortable} from '@angular/material/sort';
 import {ngxCsv} from 'ngx-csv';
 
 export interface PeriodicElement {
@@ -16,6 +16,7 @@ export interface PeriodicElement {
   critical: number;
   casesPerOneMillion: number;
   deathsPerOneMillion: number;
+  firstCase: string;
 }
 
 
@@ -36,7 +37,7 @@ export class UlkelerComponent implements OnInit {
   datas = [];
   dataSource: MatTableDataSource<PeriodicElement>;
   // tslint:disable-next-line:max-line-length
-  displayedColumns: string[] = ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active', 'critical', 'casesPerOneMillion', 'deathsPerOneMillion'];
+  displayedColumns: string[] = ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active', 'critical', 'casesPerOneMillion', 'deathsPerOneMillion', 'firstCase'];
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   options = {
@@ -55,7 +56,7 @@ export class UlkelerComponent implements OnInit {
       this.datas = api;
       this.dataSource = new MatTableDataSource<PeriodicElement>(this.datas);
       this.dataSource.paginator = this.paginator;
-      this.sort.sort(({ id: 'cases', start: 'desc'}) as MatSort);
+      this.sort.sort(({ id: 'cases', start: 'desc'}) as MatSortable);
       this.dataSource.sort = this.sort;
 /*      this.paginator._intl.itemsPerPageLabel = 'Sayfa Başına Gösterim';
       this.paginator._intl.nextPageLabel  = 'Sonraki Sayfa';
@@ -90,5 +91,9 @@ export class UlkelerComponent implements OnInit {
     // tslint:disable-next-line:no-unused-expression
     new ngxCsv(this.datas, 'Daily Report', this.options)
     ;
+  }
+
+  rakamBul (value) {
+    value.replace(/\D/g, '');
   }
 }

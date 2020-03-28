@@ -47,7 +47,7 @@ export class UlkelerComponent implements OnInit {
     showLabels: true,
     useBom: true,
     // tslint:disable-next-line:max-line-length
-    headers: ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active', 'critical', 'casesPerOneMillion', 'deathsPerOneMillion']
+    headers: ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active', 'critical', 'casesPerOneMillion', 'deathsPerOneMillion', 'firstCase']
   };
 
   ngOnInit(): void {
@@ -89,11 +89,6 @@ export class UlkelerComponent implements OnInit {
   }
   results() {
     // tslint:disable-next-line:no-unused-expression
-    new ngxCsv(this.datas, 'Daily Report', this.options)
-    ;
-  }
-
-  rakamBul (value) {
-    value.replace(/\D/g, '');
+    new ngxCsv(this.datas, 'Daily Report', this.options);
   }
 }

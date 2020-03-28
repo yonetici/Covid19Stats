@@ -55,6 +55,7 @@ export class UlkelerComponent implements OnInit {
       this.datas = api;
       this.dataSource = new MatTableDataSource<PeriodicElement>(this.datas);
       this.dataSource.paginator = this.paginator;
+      this.sort.sort(({ id: 'cases', start: 'desc'}) as MatSort);
       this.dataSource.sort = this.sort;
 /*      this.paginator._intl.itemsPerPageLabel = 'Sayfa Başına Gösterim';
       this.paginator._intl.nextPageLabel  = 'Sonraki Sayfa';

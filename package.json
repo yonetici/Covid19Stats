@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "~9.0.5",
     "@angular/router": "~9.0.5",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jw-angular-pagination": "^1.1.0",
     "material": "^0.4.3",
     "ngx-csv": "^0.3.2",
